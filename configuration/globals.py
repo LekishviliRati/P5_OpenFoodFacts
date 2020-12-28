@@ -20,3 +20,5 @@ CATEGORIES = [
     "Desserts"
 ]
 
+# Category fields
+category_field_beverage = "Boissons"
