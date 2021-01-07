@@ -22,3 +22,7 @@ CATEGORIES = [
 
 # Category fields
 category_field_beverage = "Boissons"
+category_field_meal = "Plats Préparés"
+category_field_meat = "Viandes"
+category_field_cheese = "Fromages"
+category_field_dessert = "Desserts"

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-d = dict()
-for x in range(1, 16):
-    d[x] = x ** 2
-print(d)
+a = 1
+b = 0
+
+if a > b:
+    print("a est sup")
