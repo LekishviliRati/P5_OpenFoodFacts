@@ -1,15 +1,10 @@
 # -*- coding: utf-8 -*-
 
-"""
-
-"""
-
-
 class Product:
-    """Creates products."""
+    """Intantiate products from a given list."""
 
     def __init__(self, clean_product):
-        """product fields"""
+        """Product fields."""
         self.name = clean_product['product_name_fr']
         self.description = clean_product['generic_name_fr']
         self.grade = clean_product['nutrition_grade_fr']
