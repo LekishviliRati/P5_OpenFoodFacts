@@ -1,38 +1,31 @@
 # Find healthy products, using OpenFoodFacts API.
 
 ---
-___
+
 
 ## What is this program for ?
 
 Find healthier substitutes to a food product. A program that would interact with the Open Food Facts database to retrieve foods, 
 compare them and offer the user a healthier alternative to the food they want.
 
-### *Features*
+___
 
-- Create empty database.
-- Fill the database.
-- Display categories.
-- Select a category.
-- Display popular not healthy products of the selected category.
-- Select a product and display substitutes available.
-- Select a healthier substitute.
-- Display information about the substitute.
-- Save or not substitute in favorite list.
-- Display favorite list.
-- Reset favorite list.
-- Reset database.
 
 ### *Install Python*
 
 - Python 3.8
-  > Install Python : https://www.python.org/doc/
+  > Install Python : https://www.python.org/downloads/
+  
+  > Python Documentation : https://www.python.org/doc/
 
-### *MySQL*
+### *MySQL & MySQL Workbench*
 
 - MySQL 8
-  > Install MySQL : https://dev.mysql.com/doc/
+  > Install MySQL : https://dev.mysql.com/downloads/mysql
+  
+  > MySQl documentation : https://dev.mysql.com/doc/
 
+  > Install MySQL Workbench : https://dev.mysql.com/downloads/workbench/
 ### *Virtualenv*
 
 - **Install** : pip3 install virtualenv 
@@ -57,5 +50,16 @@ compare them and offer the user a healthier alternative to the food they want.
 - **Run** : main.py
 
 
+### *Key Features*
 
-
+- Create empty database.
+- Fill the database.
+- Display categories.
+- Select a category.
+- Display popular not healthy products of the selected category.
+- Select a product and display available substitutes.
+- Select a healthier substitute and display information about it.
+- Save or not chosen substitute in favorite list.
+- Display favorite list.
+- Reset favorite list.
+- Reset database.
