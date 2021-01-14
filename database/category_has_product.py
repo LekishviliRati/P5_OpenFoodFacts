@@ -35,7 +35,8 @@ class Category_has_product:
     def get_beverage_ids_list(self):
         """
         Get all ids of beverages in product table
-        and insert them in category_has_product.
+        and insert them in category_has_product
+        one by one with category Id.
         """
 
         def insert_in_category_has_product(beverage_product_id):
@@ -53,7 +54,7 @@ class Category_has_product:
                                     data_product_id)
                 self.mydb.commit()
 
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'execution de "
                       f"'insert_in_category_has_product'. "
                       f"Détails de l'erreur : {err}")
@@ -68,7 +69,7 @@ class Category_has_product:
             for beverage_product_id in beverage_ids_list:
                 insert_in_category_has_product(beverage_product_id)
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'get_beverage_ids_list'. "
                   f"Détails de l'erreur : {err}")
 
@@ -95,7 +96,7 @@ class Category_has_product:
                                     data_product_id)
                 self.mydb.commit()
 
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'exécution de 'get_meal_ids_list'. "
                       f"Détails de l'erreur : {err}")
 
@@ -110,7 +111,7 @@ class Category_has_product:
             for meal_product_id in meal_ids_list:
                 insert_in_category_has_product(meal_product_id)
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'get_meal_ids_list'. "
                   f"Détails de l'erreur : {err}")
 
@@ -136,7 +137,7 @@ class Category_has_product:
                                     data_product_id)
                 self.mydb.commit()
 
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'exécution de 'get_meat_ids_list'. "
                       f"Détails de l'erreur : {err}")
 
@@ -149,7 +150,7 @@ class Category_has_product:
             for meat_product_id in meat_ids_list:
                 insert_in_category_has_product(meat_product_id)
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'get_meat_ids_list'. "
                   f"Détails de l'erreur : {err}")
 
@@ -174,7 +175,7 @@ class Category_has_product:
                                     data_product_id)
                 self.mydb.commit()
 
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'exécution de 'get_cheese_ids_list'. "
                       f"Détails de l'erreur : {err}")
 
@@ -186,7 +187,7 @@ class Category_has_product:
             for cheese_product_id in cheese_ids_list:
                 insert_in_category_has_product(cheese_product_id)
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'get_cheese_ids_list'. "
                   f"Détails de l'erreur : {err}")
 
@@ -210,7 +211,7 @@ class Category_has_product:
                                     data_product_id)
                 self.mydb.commit()
 
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'exécution de 'get_dessert_ids_list'. "
                       f"Détails de l'erreur : {err}")
 
@@ -223,6 +224,6 @@ class Category_has_product:
             for dessert_product_id in dessert_ids_list:
                 insert_in_category_has_product(dessert_product_id)
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'get_dessert_ids_list'. "
                   f"Détails de l'erreur : {err}")

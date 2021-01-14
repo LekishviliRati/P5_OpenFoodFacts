@@ -14,7 +14,6 @@ from configuration import globals
 
 def init_database():
     """Initialise database if not exists yet."""
-
     try:
         mysql.connector.connect(
             host=globals.HOST,
@@ -23,7 +22,6 @@ def init_database():
             database=globals.DB_NAME
         )
         pass
-
     except Exception:
         Create_empty_database()
         Download_products()

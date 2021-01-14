@@ -16,7 +16,6 @@ class Display:
         """Initiate Display Class."""
         self.mydb = self.connect_to_database_p5_off()
         self.cursor = self.mydb.cursor()    # Creation of cursor.
-        self.init_database = init_database()
 
     @ staticmethod
     def connect_to_database_p5_off():
@@ -78,7 +77,7 @@ class Display:
                 category_ids_list.append(str(i))
             self.category_choice(category_ids_list)
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'display_categories'. "
                   f"Détails de l'erreur : {err}")
 
@@ -130,7 +129,7 @@ class Display:
             for product in products_result:
                 products_list.append(str(product[0]))
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'products_by_category'. "
                   f"Détails de l'erreur : {err}")
 
@@ -226,7 +225,7 @@ class Display:
                 )
                 self.find_substitute(selected_product_id)
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'find_substitute'. "
                   f"Détails de l'erreur : {err}")
 
@@ -254,7 +253,7 @@ class Display:
 
             self.switch_to_favorite(selected_substitute)
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'display_substitute'. "
                   f"Détails de l'erreur : {err}")
 
@@ -284,7 +283,7 @@ class Display:
                 print("\nVotre substitut a été ajouté à vos favoris.")
                 self.display_menu()
 
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'exécution de 'switch_to_favorite'. "
                       f"Détails de l'erreur : {err}")
 
@@ -330,7 +329,7 @@ class Display:
 
             self.select_favorite_product(favorite_id_list)
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'display_favorite_list'. "
                   f"Détails de l'erreur : {err}")
 
@@ -375,7 +374,7 @@ class Display:
             )
             self.switch_to_non_favorite(selected_substitute)
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de "
                   f"'display_substitute_from_favorite_list'. "
                   f"Détails de l'erreur : {err}")
@@ -402,7 +401,7 @@ class Display:
                 self.mydb.commit()
                 print("\n*** Votre substitut a été retiré de vos favoris. ***")
                 self.display_menu()
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'exécution de "
                       f"'switch_to_non_favorite'. "
                       f"Détails de l'erreur : {err}")
@@ -442,16 +441,18 @@ class Display:
                 )
                 self.clean_favorite_list()
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'clean_favorite_list'. "
                   f"Détails de l'erreur : {err}")
 
     def reset_database(self):
         """Reset database."""
-
         try:
+            self.cursor.execute(sql_queries.USE_DATABASE)
             self.cursor.execute(sql_queries.DELETE_DATABASE)
-            self.init_database()
+            # self.init_database()
+            # datab = init_database()
+            init_database()
             print(
                 "\n *** La Base de données a été réinitialisée *** "
             )
@@ -459,7 +460,7 @@ class Display:
             self.cursor = self.mydb.cursor()
             self.display_menu()
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'reset_database'. "
                   f"Détails de l'erreur : {err}")
 

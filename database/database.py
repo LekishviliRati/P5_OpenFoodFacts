@@ -34,12 +34,13 @@ class Create_empty_database:
             self.cursor.execute(TABLES['product'])
             self.cursor.execute(TABLES['category_has_product'])
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'create_new_database'. "
                   f"Détails de l'erreur : {err}")
 
     def insert_categories(self):
         """Insert categories names in database p5_off."""
+
         try:
             self.cursor.execute(sql_queries.USE_DATABASE)
             data = [
@@ -55,6 +56,6 @@ class Create_empty_database:
                                     )
             self.mydb.commit()
 
-        except self.mydb.Error as err:
+        except mysql.connector.Error as err:
             print(f"Erreur lors de l'exécution de 'insert_categories'. "
                   f"Détails de l'erreur : {err}")

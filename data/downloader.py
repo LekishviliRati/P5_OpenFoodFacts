@@ -64,11 +64,6 @@ class Download_products:
                 product[
                     'product_name_fr'
                 ].strip().lower().capitalize()  # string
-            product['categories'] = \
-                [name.strip().lower().capitalize()
-                 for name in product[
-                     'categories'
-                 ].split(',')]  # list
             product['stores'] = \
                 [store.strip().upper()
                  for store in product[
@@ -102,7 +97,7 @@ class Download_products:
             try:
                 self.cursor.execute(sql_queries.INSERT_PRODUCTS, data_product)
                 self.mydb.commit()
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'insertion des boissons'. "
                       f"Détails de l'erreur : {err}")
 
@@ -137,9 +132,6 @@ class Download_products:
         for product in products_no_empty_fields:
             product['product_name_fr'] = \
                 product['product_name_fr'].strip().lower().capitalize()  # str
-            product['categories'] = \
-                [name.strip().lower().capitalize()
-                 for name in product['categories'].split(',')]  # list
             product['stores'] = \
                 [store.strip().upper()
                  for store in product['stores'].split(',')]  # list
@@ -170,7 +162,7 @@ class Download_products:
             try:
                 self.cursor.execute(sql_queries.INSERT_PRODUCTS, data_product)
                 self.mydb.commit()
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'insertion des plats préparés'. "
                       f"Détails de l'erreur : {err}")
 
@@ -204,9 +196,6 @@ class Download_products:
         for product in products_no_empty_fields:
             product['product_name_fr'] = \
                 product['product_name_fr'].strip().lower().capitalize()  # str
-            product['categories'] = \
-                [name.strip().lower().capitalize()
-                 for name in product['categories'].split(',')]  # list
             product['stores'] = \
                 [store.strip().upper()
                  for store in product['stores'].split(',')]  # list
@@ -237,7 +226,7 @@ class Download_products:
             try:
                 self.cursor.execute(sql_queries.INSERT_PRODUCTS, data_product)
                 self.mydb.commit()
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'insertion des viandes'. "
                       f"Détails de l'erreur : {err}")
 
@@ -271,9 +260,6 @@ class Download_products:
         for product in products_no_empty_fields:
             product['product_name_fr'] = \
                 product['product_name_fr'].strip().lower().capitalize()  # str
-            product['categories'] = \
-                [name.strip().lower().capitalize()
-                 for name in product['categories'].split(',')]  # list
             product['stores'] = \
                 [store.strip().upper()
                  for store in product['stores'].split(',')]  # list
@@ -300,11 +286,10 @@ class Download_products:
                             'url': one_product.url,
                             'category': globals.category_field_cheese,
                             }
-
             try:
                 self.cursor.execute(sql_queries.INSERT_PRODUCTS, data_product)
                 self.mydb.commit()
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'insertion des fromages'. "
                       f"Détails de l'erreur : {err}")
 
@@ -338,9 +323,6 @@ class Download_products:
         for product in products_no_empty_fields:
             product['product_name_fr'] = \
                 product['product_name_fr'].strip().lower().capitalize()  # str
-            product['categories'] = \
-                [name.strip().lower().capitalize()
-                 for name in product['categories'].split(',')]  # list
             product['stores'] = \
                 [store.strip().upper()
                  for store in product['stores'].split(',')]  # list
@@ -367,11 +349,10 @@ class Download_products:
                             'url': one_product.url,
                             'category': globals.category_field_dessert,
                             }
-
             try:
                 self.cursor.execute(sql_queries.INSERT_PRODUCTS, data_product)
                 self.mydb.commit()
-            except self.mydb.Error as err:
+            except mysql.connector.Error as err:
                 print(f"Erreur lors de l'insertion des desserts'. "
                       f"Détails de l'erreur : {err}")
 
